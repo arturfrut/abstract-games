@@ -88,7 +88,7 @@
         <!-- Begin Post -->
         <div class="col-md-10 col-md-offset-2 col-xs-12">
           <div class="mainheading">
-            <h1 class="posttitle">Nonaga</h1>
+            <h1 class="posttitle">Ringo</h1>
           </div>
 
           <div class="article-post">
@@ -96,15 +96,17 @@
               <div class="col-md-6">
                 <img
                   class="featured-image img-fluid"
-                  src="assets/img/demopic/Nonaga/main.jpg"
+                  src="assets/img/demopic/Ringo/main_1.jpg"
                   alt=""
                 />
               </div>
               <div>
                 <h5>Materiales</h5>
                 <ul>
-                  <li>19 fichas de base</li>
-                  <li>3 fichas de un color, 3 de otro</li>
+                  <li>
+                    4 fichas de base / locetas / aros de un color, 4 de otro
+                  </li>
+                  <li>7 fichas chicas de un color, 7 fichas chicas de otro</li>
                 </ul>
               </div>
             </div>
@@ -115,7 +117,7 @@
               <div class="col-md-6">
                 <img
                   class="featured-image img-fluid"
-                  src="assets/img/demopic/Nonaga/posInic_3.jpg"
+                  src="assets/img/demopic/Ringo/posInic_5.jpg"
                   alt=""
                 />
               </div>
@@ -133,12 +135,19 @@
               <div class="col-md-6">
                 <img
                   class="featured-image img-fluid"
-                  src="assets/img/demopic/Nonaga/objetive_3.jpg"
+                  src="assets/img/demopic/Ringo/objetive_6.jpg"
                   alt=""
                 />
               </div>
               <ul>
-                <li>Lograr que nuestras 3 fichas esten en contacto</li>
+                <li>
+                  Lograr una fila de 4 aros/fichas grandes del color que
+                  elegimos hagan una linea, en cruz o diagonal
+                </li>
+                <li>
+                  Lograr una fila de 4 fichas chicas del color que elegimos
+                  hagan una linea, en cruz o diagonal
+                </li>
               </ul>
             </div>
 
@@ -146,43 +155,54 @@
             <h3>Desarrollo del juego</h3>
             <ul>
               <li>
-                En su turno cada jugador mueve primero cualquiera de sus fichas
-                y luego una ficha de base de los bordes.
+                Cada jugador elije un color de fichas grandes y un color de
+                fichas chicas
               </li>
-              <li>Esta dinámica se repite hasta lograr el objetivo</li>
+              <li>
+                Comienza el jugador del color de las fichas de las esquinas
+              </li>
+              <li>
+                En cada turno, primero se pone una ficha chica en un aro (de
+                cualquier color), y luego se mueve ese aro a otro lugar del
+                campo
+              </li>
+              <li>
+                Esto se repite hasta ganar o hasta usar las siete fichas de cada
+                uno. A partir de ese momento, se quita una ficha pequeña propia
+                del tablero y se reubica en un aro, el cual, también será
+                reubicado al final del turno.
+              </li>
+              <li>
+                Esto se repite hasta lograr el objetivo de un cuatro en raya,
+                con las fichas propias grandes o chicas.
+              </li>
             </ul>
 
             <!-- Movimientos -->
 
             <h3 class="my-4">Movimientos</h3>
             <div class="row align-items-center">
-							<div class="col-md-6">
-								<img
-									class="featured-image img-fluid"
-									src="assets/img/demopic/Nonaga/movement_2.jpg"
-									alt=""
-								/>
               <div class="col-md-6">
                 <img
                   class="featured-image img-fluid"
-                  src="assets/img/demopic/Nonaga/movement2.jpg"
+                  src="assets/img/demopic/Ringo/movement1_1.jpg"
                   alt=""
                 />
-              </div>
+                <div class="col-md-6">
+                  <img
+                    class="featured-image img-fluid"
+                    src="assets/img/demopic/Ringo/movement2_2.jpg"
+                    alt=""
+                  />
+                </div>
               </div>
               <div class="col-md-6">
                 <ul>
+                  <li>Primero se ubica una ficha chica en un aro (no necesariamente propio), luego se reubica ese aro</li>
+
+                  <li>Tanto aros como fichas chicas, se posicionan en cruz con el resto, NO en diagonal</li>
                   <li>
-                    Las fichas avanzan en linea recta, en cualquier dirección,
-                    pero siempre hasta lo máximo posible
-                  </li>
-                  <li>No se puede saltar fichas propias ni contrarias</li>
-                  <li>
-                    Todas las fichas de base deben tener obligatoriamente al
-                    menos dos fichas en contacto
-                  </li>
-									<li>
-                    En la imagen, se simula el desplazamiento de la ficha de base verde a todos los lugares donde podría ser colocada.
+                    Es obligatorio usar todas las fichas propias. Una vez se acaban, se toma una de las propias y se reubica en un aro, luego se reubica este aro
                   </li>
                 </ul>
               </div>
@@ -191,8 +211,13 @@
             <div class="row align-items-center">
               <ul>
                 <li>
-                  No se puede mover la última ficha de base que movio el jugador
-                  anterior
+                  En el primer turno de cada jugador, no se pueden ubicar
+                  fichas en el centro
+                </li>
+                <li>
+                  No se puede separar el campo. Esto significa que siempre tiene
+                  que estar conectado por una ficha que este haciendo contacto
+                  "en cruz" con otra, sea grande o chica
                 </li>
               </ul>
             </div>
