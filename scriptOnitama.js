@@ -47,11 +47,15 @@ const deck = [
 'assets/img/demopic/Onitama/cards/45.jpg',
 'assets/img/demopic/Onitama/cards/46.jpg',
 ];
+let player1Cards = [];
+let player2Cards = [];
+let middleCard = "";
+
 // Función para barajar el mazo
 function shuffleDeck(deck) {
   for (let i = deck.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [deck[i], deck[j]] = [deck[j], deck[i]];
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
   }
   return deck;
 }
@@ -61,10 +65,10 @@ function dealCards() {
   // Barajar el mazo
   const shuffledDeck = shuffleDeck([...deck]);
 
-  // Obtener las primeras dos cartas para cada jugador y una para el medio
-  const player1Cards = shuffledDeck.slice(0, 2);
-  const player2Cards = shuffledDeck.slice(2, 4);
-  const middleCard = shuffledDeck[4];
+  // Asignar cartas a los jugadores y al medio
+  player1Cards = shuffledDeck.slice(0, 2);
+  player2Cards = shuffledDeck.slice(2, 4);
+  middleCard = shuffledDeck[4];
 
   // Mostrar las cartas de cada jugador
   document.getElementById('player1-cards').innerHTML = `
@@ -88,27 +92,38 @@ function swapCards(cardElement, player, index) {
   const middleCardElement = document.querySelector('.middle-card');
   const middleCardSrc = middleCardElement.src;
 
-  // Intercambiar la imagen de la carta clickeada con la carta del medio
   if (player === 1) {
-      cardElement.src = middleCardSrc;
-      middleCardElement.src = deck[index];
+    // Intercambiar la carta del jugador 1 con la del medio
+    const temp = player1Cards[index];
+    player1Cards[index] = middleCard;
+    middleCard = temp;
+
+    // Actualizar las imágenes
+    cardElement.src = player1Cards[index];
+    middleCardElement.src = middleCard;
   } else if (player === 2) {
-      cardElement.src = middleCardSrc;
-      middleCardElement.src = deck[2 + index];
+    // Intercambiar la carta del jugador 2 con la del medio
+    const temp = player2Cards[index];
+    player2Cards[index] = middleCard;
+    middleCard = temp;
+
+    // Actualizar las imágenes
+    cardElement.src = player2Cards[index];
+    middleCardElement.src = middleCard;
   }
 }
 
 // Función para agregar eventos de clic a las cartas
 function addCardClickEvents() {
-  const player1Cards = document.querySelectorAll('.player1-card');
-  const player2Cards = document.querySelectorAll('.player2-card');
+  const player1CardsElements = document.querySelectorAll('.player1-card');
+  const player2CardsElements = document.querySelectorAll('.player2-card');
 
-  player1Cards.forEach((card, index) => {
-      card.addEventListener('click', () => swapCards(card, 1, index));
+  player1CardsElements.forEach((card, index) => {
+    card.addEventListener('click', () => swapCards(card, 1, index));
   });
 
-  player2Cards.forEach((card, index) => {
-      card.addEventListener('click', () => swapCards(card, 2, index));
+  player2CardsElements.forEach((card, index) => {
+    card.addEventListener('click', () => swapCards(card, 2, index));
   });
 }
 
