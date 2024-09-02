@@ -103,10 +103,12 @@
               <div>
                 <h5>Materiales</h5>
                 <ul>
+                  <li>Tablero 5x5</li>
+                  <li>Mazo de cartas de Onitama o usar la aplicación al final de esta página</li>
                   <li>
-                    4 fichas de base / locetas / aros de un color, 4 de otro
+                    4 fichas de un color, 4 fichas de otro. 1 ficha del primer
+                    color diferenciable del resto, 1 ficha igual del otro color
                   </li>
-                  <li>7 fichas chicas de un color, 7 fichas chicas de otro</li>
                 </ul>
               </div>
             </div>
@@ -141,12 +143,10 @@
               </div>
               <ul>
                 <li>
-                  Lograr una fila de 4 aros/fichas grandes del color que
-                  elegimos hagan una linea, en cruz o diagonal
+                  Lograr eliminar al maestro del contrario
                 </li>
                 <li>
-                  Lograr una fila de 4 fichas chicas del color que elegimos
-                  hagan una linea, en cruz o diagonal
+                  Lograr llegar a la base del contrario (es la casilla donde inicia el maestro)
                 </li>
               </ul>
             </div>
@@ -155,26 +155,19 @@
             <h3>Desarrollo del juego</h3>
             <ul>
               <li>
-                Cada jugador elije un color de fichas grandes y un color de
-                fichas chicas
+                Se reparten 2 cartas para cada jugador y se deja una carta en el medio
               </li>
               <li>
-                Comienza el jugador del color de las fichas de las esquinas
+                Comienza el jugador del color de la carta del medio 
               </li>
               <li>
-                En cada turno, primero se pone una ficha chica en un aro (de
-                cualquier color), y luego se mueve ese aro a otro lugar del
-                campo
+                Las cartas muestran como se puede jugar cada ficha, sea maestro o aprendiz. Uno debe elegir una de sus cartas, y usar ese patrón de movimiento con una de sus fichas.
               </li>
               <li>
-                Esto se repite hasta ganar o hasta usar las siete fichas de cada
-                uno. A partir de ese momento, se quita una ficha pequeña propia
-                del tablero y se reubica en un aro, el cual, también será
-                reubicado al final del turno.
+                Después de jugar se toma la carta elegida y se intercambia con la carta central
               </li>
               <li>
-                Esto se repite hasta lograr el objetivo de un cuatro en raya,
-                con las fichas propias grandes o chicas.
+                Esto se repite hasta lograr el objetivo.
               </li>
             </ul>
 
@@ -198,19 +191,23 @@
               </div>
               <div class="col-md-6">
                 <ul>
-                  <li>Primero se ubica una ficha chica en un aro (no necesariamente propio), luego se reubica ese aro</li>
-
-                  <li>Tanto aros como fichas chicas, se posicionan en cruz con el resto, NO en diagonal</li>
                   <li>
-                    Es obligatorio usar todas las fichas propias. Una vez se acaban, se toma una de las propias y se reubica en un aro, luego se reubica este aro
+                    Las cartas dicen las posibilidades de movimiento
+                  </li>
+                  <li>
+                    Se puede comer o mover a un lugar libre
+                  </li>
+                  <li>
+                    No se puede mover fuera del tablero o sobre una ficha propia
                   </li>
                 </ul>
               </div>
             </div>
             <h3 class="my-4">Jugar Onitama con cartas online</h3>
             <div class="row align-items-center">
-              <a href="./onitama_game.html" target="_blank" blank>Click aquí para jugar</a>
-
+              <a href="./onitama_game.html" target="_blank" blank
+                >Click aquí para jugar</a
+              >
             </div>
           </div>
         </div>
