@@ -13,31 +13,32 @@
                 flex-direction: column;
                 align-items: center;
             }
-            #player1-cards, #player2-cards {
+            #player1-cards {
                 transform: rotate(180deg); /* Rotar las cartas para el otro jugador */
             }
             #middle-card {
-                margin: 20px 0;
+                margin: 50px 0;
+                transform: rotate(90deg)
             }
             img {
-                width: 100px; /* Ajuste de tamaño para pantallas pequeñas */
+                width: 100%; /* Ajuste de tamaño para pantallas pequeñas */
             }
         }
     </style>
 </head>
 <body>
     <div class="container text-center mt-5">
-        <h1>Juego de Cartas</h1>
+        <h1>Onitama</h1>
         <div class="row">
-            <div class="col-4">
+            <div class="col-6">
                 <h3>Jugador 1</h3>
                 <div id="player1-cards" class="d-flex justify-content-center"></div>
             </div>
-            <div class="col-4">
+            <div class="col-6">
                 <h3>Medio</h3>
                 <div id="middle-card" class="d-flex justify-content-center"></div>
             </div>
-            <div class="col-4">
+            <div class="col-6">
                 <h3>Jugador 2</h3>
                 <div id="player2-cards" class="d-flex justify-content-center"></div>
             </div>
