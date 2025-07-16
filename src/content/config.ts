@@ -1,6 +1,6 @@
 import { defineCollection, reference, z } from 'astro:content'
 import { getIconName } from '@util/helpers'
- 
+
 
 const blocks = z
 	.array(
@@ -11,11 +11,10 @@ const blocks = z
 			animate: z.boolean().optional(),
 			centered: z.boolean().optional(),
 			container: z.string().optional(),
-			post_tag:  z.array(z.string()).optional(),
-			portfolio_tag:  z.array(z.string()).optional()
-			.optional(),
-			products: z.array(z.string()).optional(),
-			categories: z.array(z.string()).optional(),
+			post_tag: z.array(z.string()).optional(),
+			portfolio_tag: z.array(z.string()).optional()
+				.optional(),
+
 			component: z.string(),
 			reverse: z.boolean().optional(),
 			title: z.string().optional(),
@@ -61,42 +60,9 @@ const blocks = z
 					})
 				)
 				.optional(),
-				prices: z.array(z.object({
-				title: z.string().optional(),
-				intro: z.string().optional(),
-				price_suffix: z.string().optional(),
-				surface: z.string().optional(),
-				price: z.string(),
-				buttons: z
-				.array(
-					z.object({
-						href: z.string(),
-						className: z.string().optional(),
-						label: z.string(),
-						color: z.string().optional(),
-						icon: z.string().transform((val) => getIconName(val)).optional(),
-						icon_only: z.boolean().optional()
-					})
-				)
-				.optional(),
-						 	 
-				features: z.array(
-					z.object({
-						label: z.string().optional(),
-						value: z.string().optional(),
-						icon_class: z.string().optional(),
-						icon: z.string().transform((val) => getIconName(val)).optional(),
-					 
-					})
-				).optional(),
-				
 
 
 
-			})).optional(),	
-				
-
-		
 		})
 	)
 	.optional()
@@ -227,127 +193,7 @@ const project = defineCollection({
 	})
 })
 
-const product = defineCollection({
-	type: 'content',
-	schema: z.object({
-		title: z.string(),
-		id: z.string(),
-		description: z.string(),
-		intro: z.string().optional(),
-		thumbnail: z.string(),
-		og_image: z.string().optional(),
-		price: z
-			.number()
-			.or(z.string())
-			.optional()
-			.transform((val) => {
-				if (typeof val === 'string') return parseFloat(val)
-				if (!!val && val > 0) return val
-				return 0.0
-			}),
-		offer_price: z
-			.number()
-			.or(z.string())
-			.optional()
-			.transform((val) => {
-				if (typeof val === 'string') return parseFloat(val)
-				if (!!val && val > 0) return val
-				return 0.0
-			}),
-		taxable: z.boolean(),
-		tax_included: z.boolean(),
-		in_stock: z.boolean().optional(),
-		min: z.number().optional(),
-		max: z.number().optional(),
-		is_digital: z.boolean(),
-		guid: z.string().optional(),
-		shipping: z
-			.object({
-				weight: z.number(),
-				height: z.number().optional(),
-				width: z.number().optional(),
-				length: z.number().optional()
-			})
-			.optional(),
 
-		category: z.array(z.string()).optional(),
-		features: z
-			.array(
-				z.object({
-					name: z.string(),
-					value: z.string()
-				})
-			)
-			.optional(),
-		hero_buttons: z
-			.array(
-				z.object({
-					href: z.string(),
-					className: z.string().optional(),
-					label: z.string(),
-					color: z.string().optional(),
-					icon: z.string().transform((val) => getIconName(val)).optional(),
-					icon_only: z.boolean().optional()
-				})
-			)
-			.optional(),
-		variations: z
-			.array(
-				z.object({
-					name: z.string(),
-					id: z.string(),
-					show_images: z.boolean().optional(),
-					options: z
-						.array(
-							z.object({
-								label: z.string(),
-								id: z.string(),
-								price: z
-									.number()
-									.or(z.string())
-									.optional()
-									.transform((val) => {
-										if (typeof val === 'string') return parseFloat(val)
-										if (!!val && val > 0) return val
-										return 0.0
-									}),
-								thumbnail: z.string().optional()
-							})
-						)
-						.optional()
-				}).optional(),
-			)
-			.optional(),
-		date: z
-			.string()
-			.or(z.date())
-			.transform((val) => new Date(val)),
-
-		style: style,
-		blocks: blocks,
-		nav: z
-			.object({
-				next: z
-					.array(
-						z.object({
-							href: z.string(),
-							label: z.string()
-						})
-					)
-					.optional(),
-
-				prev: z
-					.array(
-						z.object({
-							href: z.string(),
-							label: z.string()
-						})
-					)
-					.optional()
-			})
-			.optional()
-	})
-})
 
 const menu = defineCollection({
 	type: 'content',
@@ -471,7 +317,7 @@ const page = defineCollection({
 
 		style: style
 
-		
+
 	})
 })
 
@@ -488,9 +334,9 @@ const config = defineCollection({
 		thumbnail: z.string().optional(),
 		og_image: z.string().optional(),
 		surface: z.array(z.object({
-				name: z.string(),
-				class: z.string()
-			})).optional(),
+			name: z.string(),
+			class: z.string()
+		})).optional(),
 		hero_buttons: z
 			.array(
 				z.object({
@@ -514,17 +360,17 @@ const config = defineCollection({
 			)
 			.optional(),
 		form: z.object({
-				title: z.string(),
-				intro: z.string().optional(),
-				thumbnail: z.string(),
-				provider: z.string(),
-				topics: z.array(z.object({
-					label: z.string(),
-					email: z.string().optional(),
-					slack_id: z.string().optional(),
-				})).optional(),
-				 
-			}).optional(),
+			title: z.string(),
+			intro: z.string().optional(),
+			thumbnail: z.string(),
+			provider: z.string(),
+			topics: z.array(z.object({
+				label: z.string(),
+				email: z.string().optional(),
+				slack_id: z.string().optional(),
+			})).optional(),
+
+		}).optional(),
 
 		blog_tags: z
 			.array(
@@ -534,12 +380,12 @@ const config = defineCollection({
 					description: z.string(),
 					thumbnail: z.string(),
 					intro: z.string().optional(),
-					body: z.string().optional(),		
-					overwrite_style:z.boolean().optional(),
+					body: z.string().optional(),
+					overwrite_style: z.boolean().optional(),
 					hero_buttons: z
 						.array(
 							z.object({
-							    href: z.string(),
+								href: z.string(),
 								className: z.string().optional(),
 								label: z.string(),
 								color: z.string().optional(),
@@ -560,12 +406,12 @@ const config = defineCollection({
 					description: z.string(),
 					thumbnail: z.string(),
 					intro: z.string().optional(),
-					body: z.string().optional(),		
-					overwrite_style:z.boolean().optional(),
+					body: z.string().optional(),
+					overwrite_style: z.boolean().optional(),
 					hero_buttons: z
 						.array(
 							z.object({
-							    href: z.string(),
+								href: z.string(),
 								className: z.string().optional(),
 								label: z.string(),
 								color: z.string().optional(),
@@ -578,32 +424,7 @@ const config = defineCollection({
 			)
 			.optional(),
 
-		product_categories: z
-			.array(
-				z.object({
-					title: z.string(),
-					name: z.string(),
-					description: z.string(),
-					thumbnail: z.string(),
-					intro: z.string().optional(),
-					body: z.string().optional(),	
-					overwrite_style:z.boolean().optional(),
-					style:style,
-					hero_buttons: z
-						.array(
-							z.object({
-							    href: z.string(),
-								className: z.string().optional(),
-								label: z.string(),
-								color: z.string().optional(),
-								icon: z.string().transform((val) => getIconName(val)).optional(),
-								icon_only: z.boolean().optional()
-							})
-						)
-						.optional()
-				})
-			)
-			.optional(),
+
 
 		style: style.optional(),
 
@@ -621,11 +442,11 @@ const config = defineCollection({
 				z.object({
 					label: z.string(),
 					links: z.array(
-					z.object({
-						href: z.string(),
-						label: z.string()
-					})
-				)
+						z.object({
+							href: z.string(),
+							label: z.string()
+						})
+					)
 				})
 			)
 			.optional(),
@@ -642,4 +463,4 @@ const config = defineCollection({
 	})
 })
 
-export const collections = { blog, page, menu, project, product, config }
+export const collections = { blog, page, menu, project, config }

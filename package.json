@@ -1,5 +1,5 @@
 {
-  "name": "nebulix",
+  "name": "abstract-games",
   "type": "module",
   "license": "CC BY-ND 4.0",
   "version": "0.1.9",
@@ -10,7 +10,7 @@
     "mdx",
     "markdown"
   ],
-  "description": "Fast & Green Theme Based on Astro + Static CMS. A Universe of Possibilities: Blogs, Portfolios, Menus, Webshop & Beyond",
+  "description": "Abstract Games a blog ",
   "scripts": {
     "postbuild": "pagefind --site dist --output-path dist/_pagefind",
     "dev": "astro dev",

@@ -7,7 +7,7 @@ import pageIcon from "@icons/page.svg";
 import menuIcon from "@icons/menu.svg";
 import settingsIcon from "@icons/settings.svg";
 import portfolioIcon from "@icons/portfolio.svg";
-import shopIcon from "@icons/shop.svg";
+
 const staticCmsVersion = "3.4.5";
 
 const lang = import.meta.env.WEBSITE_LANGUAGE;
@@ -17,9 +17,18 @@ const config = {
   locale: lang,
   site_url: url,
   logo_url: "https://nebulix.unfolding.io/logo.svg",
-  local_backend: true,
+  local_backend: true,  // false para producción
   backend: {
-    name: "test-repo",
+    name: 'github',
+    repo: 'arturfrut/abstract-games', // Reemplaza con tu repo
+    branch: 'main', // o 'master' según tu configuración
+    commit_messages: {
+      create: 'Create {{collection}} "{{slug}}"',
+      update: 'Update {{collection}} "{{slug}}"',
+      delete: 'Delete {{collection}} "{{slug}}"',
+      uploadMedia: 'Upload "{{path}}"',
+      deleteMedia: 'Delete "{{path}}"'
+    }
   },
   search: true,
   media_folder: "src/assets",
@@ -104,7 +113,7 @@ const config = {
         menuIcon,
         settingsIcon,
         portfolioIcon,
-        shopIcon,
+    
       }}
     >
       window.CMS.init({ config });
@@ -190,7 +199,7 @@ const config = {
       CMS.registerIcon("menu", () => h("img", { src: menuIcon.src }));
       CMS.registerIcon("settings", () => h("img", { src: settingsIcon.src }));
       CMS.registerIcon("portfolio", () => h("img", { src: portfolioIcon.src }));
-      CMS.registerIcon("shop", () => h("img", { src: shopIcon.src }));
+    
     </script>
   </body>
 </html>

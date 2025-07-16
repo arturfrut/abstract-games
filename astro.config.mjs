@@ -23,7 +23,7 @@ const m2dxOptions = {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://nebulix.unfolding.io",
+  site: "https://arturfrut.github.io/abstract-games/",
   integrations: [
     icon(),
     mdx({}),
